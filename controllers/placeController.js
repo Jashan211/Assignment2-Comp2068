@@ -1,4 +1,5 @@
 const Place = require('../models/Place');
+const url = require('url');
 
 exports.homePage = (req, res) => {
     res.render('index', 
@@ -9,7 +10,7 @@ exports.homePage = (req, res) => {
 };
 
 exports.getPlaces = (req, res) => {
-    
+
     Place.find((err, places) => {
         if (err) {
             res.render('error');
