@@ -3,11 +3,16 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+//for processing variables of dotenv file
+require('dotenv').config({ path: 'variables.env' });
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+
+//connecting to database
+const mongoose = require('mongoose');
+mongoose.connect(process.env.DATABASE);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
