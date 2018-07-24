@@ -7,17 +7,17 @@
     <link rel='stylesheet' href='/stylesheets/semantic.min.css' />
   </head>
   <div class="ui inverted pointing menu" >
-    <a class="active item" href="/">
+    <a class="<%= isActive === 'home' ? 'active item' : 'item' %>" href="/">
       Tour Guide
     </a>
-    <a class="item" href="/places">
+    <a class="<%= isActive === 'places' ? 'active item' : 'item' %>" href="/places">
       Tourist Places
     </a>
     <div class="right menu">
-      <a class="item" href="/register">
+      <a class="<%= isActive === 'register' ? 'active item' : 'item' %>" href="/register">
         Register
       </a>
-      <a class="item" href="/login">
+      <a class="<%= isActive === 'login' ? 'active item' : 'item' %>" href="/login">
         Login
       </a>
     </div>

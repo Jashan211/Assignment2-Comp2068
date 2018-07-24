@@ -6,6 +6,7 @@ exports.homePage = (req, res) => {
     { 
         title: 'Tour Guide', 
         user: req.user, 
+        isActive: 'home',
     });
 };
 
@@ -18,6 +19,7 @@ exports.getPlaces = (req, res) => {
             res.render('places', {
                 title: 'Tourist Places',
                 places,
+                isActive: 'places',
             });
         }
     });
