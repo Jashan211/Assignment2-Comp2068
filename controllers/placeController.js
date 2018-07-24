@@ -4,7 +4,7 @@ const url = require('url');
 exports.homePage = (req, res) => {
     res.render('index', 
     { 
-        title: 'Home', 
+        title: 'Tour Guide', 
         user: req.user, 
     });
 };
