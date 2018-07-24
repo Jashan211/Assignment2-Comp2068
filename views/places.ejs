@@ -2,11 +2,12 @@
     <h1 style="text-align: center">
         <%= title %>
     </h1>
+    <a href="/add"><button class="ui black button">Add New Place</button></a>
     <table class="ui table">
         <thead>
             <tr>
                 <th>Place Name</th>
-                <th>City</th>
+                <th>Region</th>
                 <th>Attractions</th>
             </tr>
         </thead>
@@ -14,7 +15,7 @@
             <% for (let i = 0; i < places.length; i++) { %>
             <tr>
                 <td class="collapsing"><%= places[i].place %></td>
-                <td><%= places[i].city %></td>
+                <td><%= places[i].city%>, <%= places[i].country%> </td>
                 <td><%= places[i].attractions %></td>
             </tr>
             <% } %>

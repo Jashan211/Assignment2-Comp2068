@@ -25,3 +25,18 @@ exports.getPlaces = (req, res) => {
     });
 };
 
+exports.addPlace = (req, res) => {
+    res.render('addPlace', {
+      title: 'Add Tourist Place',
+    });
+  };
+  
+  exports.createPlace = async (req, res) => {
+    try {
+      const place = new Place(req.body);
+      await place.save();
+      res.redirect('/places');
+    } catch (err) {
+      console.log(err);
+    }
+  };

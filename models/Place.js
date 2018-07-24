@@ -10,6 +10,10 @@ const placeSchema = new mongoose.Schema({
       type: String,
       required: 'Please enter city',
     },
+    country: {
+      type: String,
+      required: 'Please enter country',
+    },
     attractions: {
       type: String,
       required: 'Please enter attractions for the place',
