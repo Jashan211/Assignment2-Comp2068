@@ -28,10 +28,11 @@ exports.getPlaces = (req, res) => {
 exports.addPlace = (req, res) => {
     res.render('addPlace', {
       title: 'Add Tourist Place',
+      isActive: 'places',
     });
-  };
+};
   
-  exports.createPlace = async (req, res) => {
+exports.createPlace = async (req, res) => {
     try {
       const place = new Place(req.body);
       await place.save();
@@ -39,4 +40,4 @@ exports.addPlace = (req, res) => {
     } catch (err) {
       console.log(err);
     }
-  };
+};
