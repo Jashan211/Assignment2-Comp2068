@@ -41,3 +41,42 @@ exports.createPlace = async (req, res) => {
       console.log(err);
     }
 };
+
+exports.deletePlace = (req, res) => {
+    Place.remove(
+    { _id: req.params.id },
+    err => {
+        if (err) {
+          console.log(err);
+        } else {
+          res.redirect('/places');
+        }
+      },
+    );
+};
+
+exports.editPlace = (req, res, next) => {
+    // use Game model to find the selected document
+    Place.findById({ _id: req.params.id }, (err, place) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.render('editPlace', {
+          title: 'Edit',
+          place,
+          isActive: 'places',
+        });
+      }
+    });
+};
+  
+exports.updatePlace = (req, res) => {
+
+    Place.update({ _id: req.params.id }, req.body, (err) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.redirect('/places');
+      }
+    });
+  };
