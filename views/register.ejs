@@ -1,0 +1,41 @@
+<% include partials/header %>
+<% if(warning) { %>
+    <div class="ui red ribbon label">
+        <%= warning %>
+    </div>
+<% } %>
+<h1>
+    <%= title %>
+</h1>
+<div class="ui two column middle aligned very relaxed stackable grid">
+    <div class="column">
+    <form method="POST" class="ui form">
+        <div class="field">
+            <label for="username">Email</label>
+            <input type="email" id="username" name="username" class="input-block" required>
+        </div>
+        <div class="field">
+            <label for="password">Create Password</label>
+            <input type="password" id="password" name="password" class="input-block" required>
+        </div>
+        <div class="field">
+            <label for="password_confirm">Retype Password above</label>
+            <input type="password" id="confirm" name="confirm" class="input-block" required>
+        </div>
+        <button class="ui submit green button">Create my Account</button>
+    </form>
+    </div>
+    <div class="ui vertical divider">
+    Or
+    </div>
+    <div class="center aligned column">
+    </div>
+</div>
+
+<div class="ui inverted segment">
+    Already have an account?
+    <a href="/login">
+        <button class="ui blue button">Log In</button>
+    </a>
+</div>
+<% include partials/footer %>
