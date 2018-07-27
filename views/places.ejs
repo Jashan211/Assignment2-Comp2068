@@ -2,6 +2,12 @@
     <h1 style="text-align: center">
         <%= title %>
     </h1>
+    <% if (!user) { %>
+        <form method="POST" class="ui action input">
+            <input type="text" id="search" name="search" placeholder="Search...">
+            <button class="ui submit sky button">Search</button>
+        </form>
+    <% } %>
     <% if (user) { %>
     <a href="/add"><button class="ui black button">Add New Place</button></a>
     <% } %>

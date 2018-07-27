@@ -10,6 +10,8 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const session = require('express-session');
 
+const googleStrategy = require('passport-google-oauth').OAuth2Strategy;
+
 const localStrategy = require('passport-local').Strategy;
 
 var indexRouter = require('./routes/index');
@@ -47,6 +49,23 @@ app.use(passport.session());
 const User = require('./models/User');
 
 passport.use(User.createStrategy());
+
+passport.use(
+  new googleStrategy(
+    {
+      clientID: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      callbackURL: process.env.GOOGLE_CALLBACK_URL
+    },
+    (request, accessToken, refreshToken, profile, done) => {
+      User.findOrCreate(
+        { username: profile.emails[0].value },
+        (err, user) => done(err, user)
+      );
+    }
+  )
+);
+
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 

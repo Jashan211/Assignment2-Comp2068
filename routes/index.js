@@ -23,6 +23,9 @@ router.post('/register', userController.registerUser);
 router.get('/login', userController.login);
 router.post('/login', authController.login);
 
+router.get('/google', authController.googlePre);
+router.get('/google/callback', authController.googlePost);
+
 router.get('/logout', (req, res) => {
     req.logout();
     res.redirect('/login');
