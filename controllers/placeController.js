@@ -20,6 +20,7 @@ exports.getPlaces = (req, res) => {
                 title: 'Tourist Places',
                 places,
                 isActive: 'places',
+                user: req.user,
             });
         }
     });
@@ -29,6 +30,7 @@ exports.addPlace = (req, res) => {
     res.render('addPlace', {
       title: 'Add Tourist Place',
       isActive: 'places',
+      user: req.user,
     });
 };
   
@@ -65,6 +67,7 @@ exports.editPlace = (req, res, next) => {
           title: 'Edit',
           place,
           isActive: 'places',
+          user: req.user,
         });
       }
     });

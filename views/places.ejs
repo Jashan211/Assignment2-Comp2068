@@ -2,15 +2,19 @@
     <h1 style="text-align: center">
         <%= title %>
     </h1>
+    <% if (user) { %>
     <a href="/add"><button class="ui black button">Add New Place</button></a>
-    <table class="ui table">
+    <% } %>
+    <table class="ui striped table">
         <thead>
             <tr>
                 <th>Place Name</th>
                 <th>Region</th>
                 <th>Attractions</th>
+                <% if (user) { %>
                 <th>Edit</th>
                 <th>Delete</th>
+                <% } %>
             </tr>
         </thead>
         <tbody>
@@ -19,6 +23,7 @@
                 <td class="collapsing"><%= places[i].place %></td>
                 <td class="collapsing"><%= places[i].city%>, <%= places[i].country%> </td>
                 <td><%= places[i].attractions %></td>
+                <% if (user){ %>
                 <td>
                     <a href=/places/edit/<%= places[i]._id %>>
                         <button class="ui blue button">
@@ -33,6 +38,7 @@
                         </button> 
                     </a>
                 </td>
+                <% } %>
             </tr>
             <% } %>
         </tbody>

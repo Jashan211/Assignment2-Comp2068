@@ -14,12 +14,17 @@
       Tourist Places
     </a>
     <div class="right menu">
+      <% if (!user) { %>
       <a class="<%= isActive === 'register' ? 'active item' : 'item' %>" href="/register">
         Register
       </a>
       <a class="<%= isActive === 'login' ? 'active item' : 'item' %>" href="/login">
         Login
       </a>
+      <% } %>
+      <% if (user) { %>
+        <a class="item" href="/logout">Logout</a>
+      <% } %>
     </div>
   </div>
   <body style="background-color: darkgray">
