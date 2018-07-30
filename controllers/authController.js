@@ -34,6 +34,9 @@ exports.microsoftPre = passport.authenticate('windowslive', {
 });
 
 exports.microsoftPost = passport.authenticate('windowslive', { 
-  successRedirect: '/places',
-  failureRedirect: '/login' 
-});
+  failureRedirect: '/login' });
+  
+exports.microsoftLog = function(req, res) {
+    // Successful authentication, redirect places.
+    res.redirect('/places');
+};

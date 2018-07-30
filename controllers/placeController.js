@@ -83,3 +83,18 @@ exports.updatePlace = (req, res) => {
       }
     });
   };
+
+exports.jsonFormat = (req, res) => {
+  Place.find({}, (err, place) => {
+      if (err) {
+          res.render('error');
+      } else {
+          res.render('jsonFormat', {
+            title: 'Tourist Places',
+            place,
+            isActive: 'places',
+            user: req.user,
+        });
+      }
+  });
+};

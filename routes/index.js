@@ -27,7 +27,9 @@ router.get('/google', authController.googlePre);
 router.get('/google/callback', authController.googlePost);
 
 router.get('/microsoft', authController.microsoftPre);
-router.get('/microsoft/callback', authController.microsoftPost);
+router.get('/microsoft/callback', authController.microsoftPost, authController.microsoftLog);
+
+router.get('/jsonFormat', placeController.jsonFormat);
 
 router.get('/logout', (req, res) => {
     req.logout();
