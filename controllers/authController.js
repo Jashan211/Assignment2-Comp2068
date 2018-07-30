@@ -28,3 +28,12 @@ exports.googlePost = passport.authenticate('google', {
   successRedirect: '/places',
   failureRedirect: '/login'
 });
+
+exports.microsoftPre = passport.authenticate('windowslive', {
+  scope: ['wl.signin', 'wl.basic', 'wl.emails'],
+});
+
+exports.microsoftPost = passport.authenticate('windowslive', { 
+  successRedirect: '/places',
+  failureRedirect: '/login' 
+});

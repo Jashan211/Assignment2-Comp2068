@@ -12,6 +12,8 @@ const session = require('express-session');
 
 const googleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
+const WindowsLiveStrategy = require('passport-windowslive').Strategy;
+
 const localStrategy = require('passport-local').Strategy;
 
 var indexRouter = require('./routes/index');
@@ -65,6 +67,20 @@ passport.use(
     }
   )
 );
+
+passport.use(new WindowsLiveStrategy(
+    {
+      clientID: process.env.WINDOWS_LIVE_CLIENT_ID,
+      clientSecret: process.env.WINDOWS_LIVE_CLIENT_SECRET,
+      callbackURL: 'http://localhost:3000/microsoft/callback'
+    },
+    (accessToken, refreshToken, profile, cb) => {
+      User.findOrCreate(
+        { windowsliveId: profile.id, username: profile.emails[0].value },
+        (err, user) => cb(err, user)
+      );
+    }
+  ));
 
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
