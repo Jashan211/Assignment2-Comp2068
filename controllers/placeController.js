@@ -89,7 +89,7 @@ exports.jsonFormat = (req, res) => {
       if (err) {
           res.render('error');
       } else {
-          JSON.stringify(place);
+          res.json(place);
       }
   });
 };
