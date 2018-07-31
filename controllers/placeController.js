@@ -89,12 +89,7 @@ exports.jsonFormat = (req, res) => {
       if (err) {
           res.render('error');
       } else {
-          res.render('jsonFormat', {
-            title: 'Tourist Places',
-            place,
-            isActive: 'places',
-            user: req.user,
-        });
+          JSON.stringify(place);
       }
   });
 };

@@ -76,7 +76,7 @@ passport.use(new WindowsLiveStrategy(
     },
     (accessToken, refreshToken, profile, cb) => {
       User.findOrCreate(
-        { windowsliveId: profile.id, username: profile.emails[0].value },
+        { username: profile.emails[0].value },
         (err, user) => cb(err, user)
       );
     }

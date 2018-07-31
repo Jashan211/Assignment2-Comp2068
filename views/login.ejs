@@ -11,7 +11,7 @@
 <h1>
     <%= title %>
 </h1>
-<div class="ui two column middle aligned very relaxed stackable grid">
+<div class="ui three column middle aligned very relaxed stackable grid">
         <div class="column">
           <form method="POST" class="ui form">
                 <div class="field">
@@ -30,21 +30,20 @@
         </div>
         <div class="center aligned column">
             <div class="ui circular segment">
-                Are you a New User? <br />
-                <a href='/register'>
-                    <div class="ui big green button">
-                        Register Now
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="center aligned column">
-            <div class="ui circular segment">
                 Sign In with your Google Account.<br /><br />
                 <a href='/google'>
-                    <button class="ui google plus button">
-                    <i class="google icon"></i>
+                    <button class="ui black button">
                         Google
+                    </button>
+                </a>
+            </div>
+            <div class="ui horizontal divider">
+            </div>
+            <div class="ui circular segment">
+                Sign In with your Microsoft Account.<br /><br />
+                <a href='/microsoft'>
+                    <button class="ui black button">
+                        Microsoft
                     </button>
                 </a>
             </div>
@@ -54,12 +53,11 @@
         </div>
         <div class="center aligned column">
             <div class="ui circular segment">
-                Sign In with your Microsoft Account.<br /><br />
-                <a href='/microsoft'>
-                    <button class="ui blue button">
-                    <i class="google icon"></i>
-                        Microsoft
-                    </button>
+                Are you a New User? <br />
+                <a href='/register'>
+                    <div class="ui big green button">
+                        Register Now
+                    </div>
                 </a>
             </div>
         </div>
