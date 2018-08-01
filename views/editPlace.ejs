@@ -1,7 +1,10 @@
+<!--view page for editing a place-->
+<!-- header call from partials-->
 <% include partials/header %>
 <h1>
     <%= title %>
 </h1>
+<!--This form contain information of the place to be edited-->
     <form method="POST" class="ui form">
         <div class="field">
             <label for="place">Place Name</label>
@@ -11,6 +14,7 @@
             <label for="city">City</label>
             <input type="text" id="city" name="city" value="<%= place.city %>">
         </div>
+        <!--Drop down menu for selecting country of place-->
         <div class="field">
                 <label>Country</label>
                 <select name="country" class="ui search dropdown">
@@ -273,4 +277,6 @@
         <button class="ui submit button">Save Changes</button>
     </form>
 </div>
+
+<!-- footer call from partials-->
 <% include partials/footer %>

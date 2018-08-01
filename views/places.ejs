@@ -1,16 +1,22 @@
+<!--View Page for places data of mlab-->
+<!-- header call from partials-->
 <% include partials/header %>
     <h1 style="text-align: center">
         <%= title %>
     </h1>
+    <!--If user is authenticated then provide link for adding new place-->
     <% if (user) { %>
     <a href="/add"><button class="ui black button">Add New Place</button></a>
     <% } %>
+
+    <!--Ui striped table to show places data-->
     <table class="ui striped table">
         <thead>
             <tr>
                 <th>Place Name</th>
                 <th>Region</th>
                 <th>Attractions</th>
+                <!--If user is authenticated the provide options of edit and delete a place-->
                 <% if (user) { %>
                 <th>Edit</th>
                 <th>Delete</th>
@@ -18,12 +24,14 @@
             </tr>
         </thead>
         <tbody>
+            <!--Looping through places list-->
             <% for (let i = 0; i < places.length; i++) { %>
             <tr>
                 <td class="collapsing"><%= places[i].place %></td>
                 <td class="collapsing"><%= places[i].city%>, <%= places[i].country%> </td>
                 <td><%= places[i].attractions %></td>
                 <% if (user){ %>
+                <!--Link to edit or delete a place by passing id of that place-->
                 <td>
                     <a href=/places/edit/<%= places[i]._id %>>
                         <button class="ui blue button">
@@ -43,6 +51,8 @@
             <% } %>
         </tbody>
     </table>
+    <!--API return data in json format-->
     <a href='/jsonFormat'><button class="ui blue button">Return data in JSON format</button></a>
-    
+ 
+<!--Footer call from partials folder-->
 <% include partials/footer %>

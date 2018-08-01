@@ -1,6 +1,11 @@
+/*
+Initialize instance of place model to be used in different view connecting to database
+include reference to url
+*/
 const Place = require('../models/Place');
 const url = require('url');
 
+//method to render home page view
 exports.homePage = (req, res) => {
     res.render('index', 
     { 
@@ -10,8 +15,9 @@ exports.homePage = (req, res) => {
     });
 };
 
+//Get data from mlab to be displayed on page
 exports.getPlaces = (req, res) => {
-
+  //Use model Place to find all documents included in collection
     Place.find((err, places) => {
         if (err) {
             res.render('error');
@@ -26,6 +32,7 @@ exports.getPlaces = (req, res) => {
     });
 };
 
+//loads page getting information to create new document
 exports.addPlace = (req, res) => {
     res.render('addPlace', {
       title: 'Add Tourist Place',
@@ -33,7 +40,8 @@ exports.addPlace = (req, res) => {
       user: req.user,
     });
 };
-  
+
+//method to create new document by adding data to database
 exports.createPlace = async (req, res) => {
     try {
       const place = new Place(req.body);
@@ -44,6 +52,7 @@ exports.createPlace = async (req, res) => {
     }
 };
 
+//method to delete data from database when delete button pushed
 exports.deletePlace = (req, res) => {
     Place.remove(
     { _id: req.params.id },
@@ -57,8 +66,9 @@ exports.deletePlace = (req, res) => {
     );
 };
 
+// method to load edit page while getting request of editing specific document
 exports.editPlace = (req, res, next) => {
-    // use Game model to find the selected document
+  // use Pame model to find the selected document
     Place.findById({ _id: req.params.id }, (err, place) => {
       if (err) {
         console.log(err);
@@ -73,8 +83,8 @@ exports.editPlace = (req, res, next) => {
     });
 };
   
+//method loads when user edit a place to update changes in database
 exports.updatePlace = (req, res) => {
-
     Place.update({ _id: req.params.id }, req.body, (err) => {
       if (err) {
         console.log(err);
@@ -84,11 +94,14 @@ exports.updatePlace = (req, res) => {
     });
   };
 
+// this method is for api returning data in json format
 exports.jsonFormat = (req, res) => {
+  //get mlab data using model
   Place.find({}, (err, place) => {
       if (err) {
           res.render('error');
       } else {
+        //return data in json format
           res.json(place);
       }
   });

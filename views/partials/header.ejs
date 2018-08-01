@@ -1,3 +1,6 @@
+<!--
+  Shared Header for all view pages
+-->
 <!DOCTYPE html>
 <html>
   <head>
@@ -6,6 +9,7 @@
     <link rel='stylesheet' href='/stylesheets/semantic.css' />
     <link rel='stylesheet' href='/stylesheets/semantic.min.css' />
   </head>
+  <!-- navbar styling using semantic ui css template-->
   <div class="ui inverted pointing menu" >
     <a class="<%= isActive === 'home' ? 'active item' : 'item' %>" href="/">
       Tour Guide
@@ -14,6 +18,7 @@
       Tourist Places
     </a>
     <div class="right menu">
+      <!-- Check is there is no user signe in to show register and login link-->
       <% if (!user) { %>
       <a class="<%= isActive === 'register' ? 'active item' : 'item' %>" href="/register">
         Register
@@ -22,6 +27,7 @@
         Login
       </a>
       <% } %>
+      <!--If there is user signed in it will show logout link-->
       <% if (user) { %>
         <a class="item" href="/logout">Logout</a>
       <% } %>

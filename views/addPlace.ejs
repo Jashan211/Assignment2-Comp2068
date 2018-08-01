@@ -1,7 +1,12 @@
+<!-- view page including form for requesting information for adding new document to database -->
+<!-- header call from partials-->
 <% include partials/header %>
+
 <h1>
     <%= title %>
 </h1>
+
+<!--form styling using ui form from semantic ui stylesheet-->
     <form method="POST" action="/add" class="ui form">
         <div class="field">
             <label for="place">Place Name</label>
@@ -11,6 +16,7 @@
             <label for="city">City</label>
             <input type="text" id="city" name="city">
         </div>
+        <!--Drop down menu for selecting country of place-->
         <div class="field">
                 <label>Country</label>
                 <select name="country" class="ui search dropdown">
@@ -273,4 +279,6 @@
         <button class="ui submit button">Submit</button>
     </form>
 </div>
+
+<!-- footer call from partials-->
 <% include partials/footer %>

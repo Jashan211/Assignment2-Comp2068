@@ -1,3 +1,8 @@
+/*
+  This controller contain functions related to authenticating users account
+  Initialize passport, mongoose and User Instance
+  Different exports method to load view for different login and authenticating users
+*/
 const passport = require('passport');
 const mongoose = require('mongoose');
 const User = mongoose.model('User');

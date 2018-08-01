@@ -1,3 +1,6 @@
+/*
+This controller contain export functions for registering and loging users for site
+*/
 const passport = require('passport');
 const User = require('../models/User');
 

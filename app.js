@@ -10,10 +10,9 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const session = require('express-session');
 
+/*Google, Microsoft and passport authentication dependencies*/
 const googleStrategy = require('passport-google-oauth').OAuth2Strategy;
-
 const WindowsLiveStrategy = require('passport-windowslive').Strategy;
-
 const localStrategy = require('passport-local').Strategy;
 
 var indexRouter = require('./routes/index');
@@ -48,10 +47,12 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+//model reference for using schema to create user or authenticating
 const User = require('./models/User');
 
 passport.use(User.createStrategy());
 
+//google authentication process for registering user or logging allowance with google account
 passport.use(
   new googleStrategy(
     {
@@ -68,11 +69,12 @@ passport.use(
   )
 );
 
+//WindowsLive authentication process for registering user or logging allowance with Microsoft account
 passport.use(new WindowsLiveStrategy(
     {
       clientID: process.env.WINDOWS_LIVE_CLIENT_ID,
       clientSecret: process.env.WINDOWS_LIVE_CLIENT_SECRET,
-      callbackURL: 'http://localhost:3000/microsoft/callback'
+      callbackURL: 'https://tourguide-comp2068.herokuapp.com/microsoft/callback'
     },
     (accessToken, refreshToken, profile, cb) => {
       User.findOrCreate(

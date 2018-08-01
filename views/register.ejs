@@ -1,4 +1,8 @@
+<!--View page for registering a new user-->
+<!--Header call from partials-->
 <% include partials/header %>
+
+<!--Displaying warning with red ribbon label-->
 <% if(warning) { %>
     <div class="ui red ribbon label">
         <%= warning %>
@@ -7,6 +11,8 @@
 <h1>
     <%= title %>
 </h1>
+
+<!--UI form for setting username and password-->
 <div class="ui two column middle aligned very relaxed stackable grid">
     <div class="column">
     <form method="POST" class="ui form">
@@ -32,10 +38,13 @@
     </div>
 </div>
 
+<!--Link to login if the person have an account-->
 <div class="ui inverted segment">
     Already have an account?
     <a href="/login">
         <button class="ui blue button">Log In</button>
     </a>
 </div>
+
+<!--Footer call from partials-->
 <% include partials/footer %>
