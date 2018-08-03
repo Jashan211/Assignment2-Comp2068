@@ -45,7 +45,7 @@ exports.addPlace = (req, res) => {
 exports.createPlace = async (req, res) => {
     try {
       const place = new Place(req.body);
-      await place.save();
+      place.save();
       res.redirect('/places');
     } catch (err) {
       console.log(err);
