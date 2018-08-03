@@ -10,16 +10,16 @@
     <form method="POST" action="/add" class="ui form">
         <div class="field">
             <label for="place">Place Name</label>
-            <input type="text" id="place" name="place">
+            <input type="text" id="place" name="place" required>
         </div>
         <div class="field">
             <label for="city">City</label>
-            <input type="text" id="city" name="city">
+            <input type="text" id="city" name="city" required>
         </div>
         <!--Drop down menu for selecting country of place-->
         <div class="field">
                 <label>Country</label>
-                <select name="country" class="ui search dropdown">
+                <select name="country" class="ui search dropdown" required>
                   <option value="">Select Country</option>
                   <option value="AF">Afghanistan</option>
                   <option value="AX">Åland Islands</option>
@@ -274,7 +274,7 @@
               </div>
         <div class="field">
             <label for="attractions">Attractions</label>
-            <input type="text" id="attractions" name="attractions">
+            <input type="text" id="attractions" name="attractions" required>
         </div>
         <button class="ui submit button">Submit</button>
     </form>
